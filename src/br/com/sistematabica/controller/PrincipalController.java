@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/** Controller que vai controlar a tela de login
+/** Controller que vai ser responsável pela tela de login
  *
  * @author Joel Henrique Silva Santos
  * @author Evelyn Mayara Silva Santos
@@ -91,7 +91,7 @@ public class PrincipalController {
                 menuController.showGUI((Gerente)conta);
             // caso for um operador vai abrir a tela do operador
             }else if(conta instanceof OperadorCaixa) {
-                menuController.showGUI((OperadorCaixa)conta);
+                menuController.showTela((OperadorCaixa)conta);
             }
             
             PrincipalController.loginGUI.setVisible(false);

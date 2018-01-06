@@ -1398,9 +1398,9 @@ public class PrincipalGUI extends javax.swing.JFrame {
     private void lblButtonNovaVendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonNovaVendaMouseClicked
         
         if(conta instanceof OperadorCaixa)
-            menuController.objectSelected(((OperadorCaixa)conta).getDados().getNomeCompleto(),new NovaVendaGUI());
+            menuController.chamarTela(((OperadorCaixa)conta).getDados().getNomeCompleto(),new NovaVendaGUI());
         else if(conta instanceof Gerente)
-            menuController.objectSelected(((Gerente)conta).getDados().getNomeCompleto(),new NovaVendaGUI());
+            menuController.chamarTela(((Gerente)conta).getDados().getNomeCompleto(),new NovaVendaGUI());
         
     }//GEN-LAST:event_lblButtonNovaVendaMouseClicked
 
@@ -1413,7 +1413,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lblButtonNovaVendaMouseExited
  
     private void lblButtonConsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonConsultarMouseClicked
-        menuController.objectSelected(new ConsultarVendaGUI());
+        menuController.chamarTela(new ConsultarVendaGUI());
     }//GEN-LAST:event_lblButtonConsultarMouseClicked
 
     private void lblButtonConsultarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonConsultarMouseEntered
@@ -1430,7 +1430,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
             new MeuPerfilOperadorCaixaGUI((OperadorCaixa)conta).setVisible(true);
         }else if(tipoConta.equalsIgnoreCase("gerente")){
             this.dispose();
-            new GerenteController().alterarGUI((Gerente)conta);
+            new GerenteController().telaAlterar((Gerente)conta);
         }
         
     }//GEN-LAST:event_lblButtonMeuPerfilMouseClicked
@@ -1444,7 +1444,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lblButtonMeuPerfilMouseExited
 
     private void lblButtonAtualizacoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonAtualizacoesMouseClicked
-        menuController.objectSelected(new AtualizacoesGUI());
+        menuController.chamarTela(new AtualizacoesGUI());
     }//GEN-LAST:event_lblButtonAtualizacoesMouseClicked
 
     private void lblButtonAtualizacoesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonAtualizacoesMouseEntered
@@ -1456,7 +1456,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lblButtonAtualizacoesMouseExited
 
     private void lblButtonSuporteTecnicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonSuporteTecnicoMouseClicked
-        menuController.objectSelected(new SuporteTecnicoGUI());
+        menuController.chamarTela(new SuporteTecnicoGUI());
     }//GEN-LAST:event_lblButtonSuporteTecnicoMouseClicked
 
     private void lblButtonSuporteTecnicoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonSuporteTecnicoMouseEntered
@@ -1468,7 +1468,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lblButtonSuporteTecnicoMouseExited
 
     private void lblButtonSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonSobreMouseClicked
-        menuController.objectSelected(new SobreGUI());
+        menuController.chamarTela(new SobreGUI());
     }//GEN-LAST:event_lblButtonSobreMouseClicked
 
     private void lblButtonSobreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonSobreMouseEntered
@@ -1480,7 +1480,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lblButtonSobreMouseExited
 
     private void lblButtonFeedbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonFeedbackMouseClicked
-        menuController.objectSelected(new FeedbackGUI());
+        menuController.chamarTela(new FeedbackGUI());
     }//GEN-LAST:event_lblButtonFeedbackMouseClicked
 
     private void lblButtonFeedbackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonFeedbackMouseEntered
@@ -1492,7 +1492,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lblButtonFeedbackMouseExited
 
     private void lblButtonRelatorioMovimentacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonRelatorioMovimentacaoMouseClicked
-        menuController.objectSelected(new MovimentacaoGUI());
+        menuController.chamarTela(new MovimentacaoGUI());
     }//GEN-LAST:event_lblButtonRelatorioMovimentacaoMouseClicked
 
     private void lblButtonRelatorioMovimentacaoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonRelatorioMovimentacaoMouseEntered
@@ -1504,7 +1504,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lblButtonRelatorioMovimentacaoMouseExited
 
     private void lblButtonClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonClienteMouseClicked
-        menuController.objectSelected(new ClienteGUI());
+        menuController.chamarTela(new ClienteGUI());
     }//GEN-LAST:event_lblButtonClienteMouseClicked
 
     private void lblButtonClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonClienteMouseEntered
@@ -1518,7 +1518,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     private void lblButtonGerenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonGerenteMouseClicked
         
         if(tipoConta.equalsIgnoreCase("gerente"))
-            menuController.objectSelected(new GerenteGUI(),(Gerente)conta);
+            menuController.chamarTela(new GerenteGUI(),(Gerente)conta);
         else if(tipoConta.equalsIgnoreCase("operadorCaixa"))
             JOptionPane.showMessageDialog(null, "Você não tem privilégio para entrar aqui");
         
@@ -1535,7 +1535,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     private void lblButtonOperadorCaixaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonOperadorCaixaMouseClicked
 
         if(tipoConta.equalsIgnoreCase("gerente"))
-            menuController.objectSelected(new OperadorCaixaGUI());
+            menuController.chamarTela(new OperadorCaixaGUI());
         else if(tipoConta.equalsIgnoreCase("operadorCaixa"))
             JOptionPane.showMessageDialog(null, "Você não tem privilégio para entrar aqui");
         
@@ -1550,7 +1550,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lblButtonOperadorCaixaMouseExited
 
     private void lblButtonProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonProdutoMouseClicked
-        menuController.objectSelected(new ProdutoGUI());
+        menuController.chamarTela(new ProdutoGUI());
     }//GEN-LAST:event_lblButtonProdutoMouseClicked
 
     private void lblButtonProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonProdutoMouseEntered

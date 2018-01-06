@@ -14,7 +14,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**Classe Controller que vai controlar tudo relacionado a operador de caixa.
+/**Classe Controller que vai ser responsável por tudo relacionado a operador de caixa.
  * 
  * @author Joel Henrique
  * @author Evelyn Mayara

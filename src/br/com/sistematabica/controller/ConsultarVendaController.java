@@ -3,12 +3,10 @@ package br.com.sistematabica.controller;
 
 import br.com.sistematabica.dao.CompraProdutoDAOOracle;
 import br.com.sistematabica.dao.VendaDAOOracle;
-import br.com.sistematabica.model.Cliente;
-import br.com.sistematabica.view.cadastrar.conta.cliente.CadastrarClienteGUI;
 import br.com.sistematabica.view.vendas.ConsultarVendaGUI;
 import javax.swing.JOptionPane;
 
-/**Classe Controller que vai controlar tudo relacionado a consultar venda.
+/**Controller que vai ser responsável por tudo relacionado a consultar venda.
  * 
  * @author Joel Henrique
  * @author Evelyn Mayara
@@ -29,7 +27,7 @@ public class ConsultarVendaController {
      * @author Lucas Gabriel
      *
      */
-    public void showGUI() {
+    public void showTela() {
         consultarVendaGUI = new ConsultarVendaGUI(new VendaDAOOracle().selecionarTodasVendas());
         consultarVendaGUI.setVisible(true);
     }
@@ -56,17 +54,12 @@ public class ConsultarVendaController {
      * @return boolean - true se removido com sucesso, false se teve alguma falha.
      * 
      */
-    public boolean excluir(int id) {
+    public boolean deletar(int id) {
         
         boolean compraProduto = new CompraProdutoDAOOracle().deletarCompraProduto(id);
         boolean venda = new VendaDAOOracle().deletarVenda(id);
         
-        
-        if (compraProduto && venda) {
-            return true;
-        } else {
-            return false;
-        }
+        return compraProduto && venda;
     }
 
 }

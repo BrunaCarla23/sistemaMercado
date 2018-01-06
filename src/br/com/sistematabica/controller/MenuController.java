@@ -21,7 +21,7 @@ import br.com.sistematabica.view.vendas.ConsultarVendaGUI;
 import br.com.sistematabica.view.vendas.NovaVendaGUI;
 import java.util.ArrayList;
 
-/**Controller principal
+/**Controller principal que vai ser responsável pela inicial
  *
  * @author Joel Henrique
  * @author Evelyn Mayara
@@ -42,7 +42,7 @@ public class MenuController{
      * @author Evelyn Mayara
      * 
      */
-    public void showGUI() {
+    public void showTela() {
         principalGUI = new PrincipalGUI();
         principalGUI.setVisible(true);
     }
@@ -54,7 +54,7 @@ public class MenuController{
      * @author Lucas Gabriel
      * 
      */
-    public void dispose() {
+    public void fecharTelaPrincipal() {
         principalGUI.setVisible(false);
     }
     
@@ -72,7 +72,7 @@ public class MenuController{
        principalGUI = new PrincipalGUI(gerente);
        principalGUI.setVisible(true);
        
-        System.out.println("Sistema: gerente " + gerente.getDados().getNomeCompleto() + " entrou no sistema");
+        System.out.println("gerente " + gerente.getDados().getNomeCompleto() + " entrou no sistema");
     }
     
     /** Método vai mostrar a tela principal enviando um operador de caixa
@@ -83,14 +83,13 @@ public class MenuController{
      * 
      * @param  operadorCaixa OperadorCaixa - Um operador de caixa.
      * 
-     * 
      */
-    public void showGUI(OperadorCaixa operadorCaixa) {
+    public void showTela(OperadorCaixa operadorCaixa) {
         
         principalGUI = new PrincipalGUI(operadorCaixa);
         principalGUI.setVisible(true);
         
-        System.out.println("Sistema: OperadorCaixa " + operadorCaixa.getDados().getNomeCompleto() + " entrou no sistema");
+        System.out.println("OperadorCaixa " + operadorCaixa.getDados().getNomeCompleto() + " entrou no sistema");
         
     }
     
@@ -103,9 +102,9 @@ public class MenuController{
      * @param  tela ClienteGUI - Um objeto ClienteGUI.
      * 
      */
-    public void objectSelected(ClienteGUI tela) {
+    public void chamarTela(ClienteGUI tela) {
         ClienteController clienteController = new ClienteController();
-        clienteController.showGUI();
+        clienteController.showTela();
     }
 
     /** Método que vai mostrar a tela do gerente
@@ -117,9 +116,9 @@ public class MenuController{
      * @param  tela GerenteGUI - um objeto GerenteGUI
      * 
      */
-    public void objectSelected(GerenteGUI tela, Gerente gerente) {
+    public void chamarTela(GerenteGUI tela, Gerente gerente) {
         GerenteController gerenteController = new GerenteController();
-        gerenteController.showGUI(gerente);
+        gerenteController.showTela(gerente);
     }
 
     /** Método que vai mostrar a tela do operador de caixa
@@ -131,7 +130,7 @@ public class MenuController{
      * @param  tela OperadorCaixaGUI - um objeto OperadorCaixaGUI.
      * 
      */
-    public void objectSelected(OperadorCaixaGUI tela) {
+    public void chamarTela(OperadorCaixaGUI tela) {
         OperadorCaixaController operadorCaixaController = new OperadorCaixaController();
         operadorCaixaController.showTela();
     }
@@ -145,7 +144,7 @@ public class MenuController{
      * @param  tela ConsultarVendaGUI - um objeto ConsultarVendaGUI.
      * 
      */
-    public void objectSelected(ConsultarVendaGUI tela) {
+    public void chamarTela(ConsultarVendaGUI tela) {
         ConsultarVendaGUI view = new ConsultarVendaGUI(new VendaDAOOracle().selecionarTodasVendas());
         view.setVisible(true);
     }
@@ -156,16 +155,17 @@ public class MenuController{
      * @author Lucas Gabriel
      * @author Evelyn Mayara
      * 
+     * @param nomeVendedor String - nome do vendedor
      * @param  tela NovaVendaGUI - um objeto NovaVendaGUI.
      * 
      */
-    public void objectSelected(String nomeVendedor, NovaVendaGUI tela) {
+    public void chamarTela(String nomeVendedor, NovaVendaGUI tela) {
         
         ArrayList<Cliente> clientes = new ClienteDAOOracle().selecionarTodosClientes();
         int codNumeroVenda = new VendaDAOOracle().idMaxVenda() + 1;
         
         NovaVendaController novaVendaController = new NovaVendaController();
-        novaVendaController.showGUI(nomeVendedor, clientes, codNumeroVenda);
+        novaVendaController.showTela(nomeVendedor, clientes, codNumeroVenda);
     }
 
     /** Método que vai mostrar a tela do produto
@@ -177,7 +177,7 @@ public class MenuController{
      * @param  tela ProdutoGUI - um objeto ProdutoGUI.
      * 
      */
-    public void objectSelected(ProdutoGUI tela) {
+    public void chamarTela(ProdutoGUI tela) {
         ProdutoController produtoController = new ProdutoController();
         produtoController.showTela();
     }
@@ -191,7 +191,7 @@ public class MenuController{
      * @param  tela MovimentacaoGUI - um objeto MovimentacaoGUI.
      * 
      */
-    public void objectSelected(MovimentacaoGUI tela) {
+    public void chamarTela(MovimentacaoGUI tela) {
         
         ArrayList<Venda> vendas = new VendaDAOOracle().selecionarTodasVendas();
         
@@ -208,7 +208,7 @@ public class MenuController{
      * @param  tela AtualizacoesGUI - um objeto AtualizacoesGUI.
      * 
      */
-    public void objectSelected(AtualizacoesGUI tela) {
+    public void chamarTela(AtualizacoesGUI tela) {
         AtualizacoesGUI view = new AtualizacoesGUI();
         view.setVisible(true);
     }
@@ -222,7 +222,7 @@ public class MenuController{
      * @param  tela FeedbackGUI - um objeto FeedbackGUI.
      * 
      */
-    public void objectSelected(FeedbackGUI tela) {
+    public void chamarTela(FeedbackGUI tela) {
         FeedbackGUI view = new FeedbackGUI();
         view.setVisible(true);
     }
@@ -236,7 +236,7 @@ public class MenuController{
      * @param  tela SobreGUI - um objeto SobreGUI.
      * 
      */
-    public void objectSelected(SobreGUI tela) {
+    public void chamarTela(SobreGUI tela) {
         SobreGUI view = new SobreGUI();
         view.setVisible(true);
     }
@@ -250,7 +250,7 @@ public class MenuController{
      * @param  tela SuporteTecnicoGUI - um objeto SuporteTecnicoGUI.
      * 
      */
-    public void objectSelected(SuporteTecnicoGUI tela) {
+    public void chamarTela(SuporteTecnicoGUI tela) {
         SuporteTecnicoGUI view = new SuporteTecnicoGUI();
         view.setVisible(true);
     }

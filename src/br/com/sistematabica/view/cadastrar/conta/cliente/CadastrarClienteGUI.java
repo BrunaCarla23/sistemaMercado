@@ -333,7 +333,7 @@ public class CadastrarClienteGUI extends javax.swing.JFrame {
     private void lblButtonVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonVoltarMouseClicked
         this.dispose();
         ClienteController clienteController = new ClienteController();
-        clienteController.showGUI();
+        clienteController.showTela();
     }//GEN-LAST:event_lblButtonVoltarMouseClicked
 
     private void lblButtonSalvarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonSalvarMouseExited
@@ -382,7 +382,7 @@ public class CadastrarClienteGUI extends javax.swing.JFrame {
             new ClienteController().inserir(cliente);
             this.dispose();
             ClienteController clienteController = new ClienteController();
-            clienteController.showGUI();
+            clienteController.showTela();
 
         }else {
             JOptionPane.showMessageDialog(null, "Falto um campo vazio");

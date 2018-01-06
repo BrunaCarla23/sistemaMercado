@@ -7,7 +7,7 @@ import br.com.sistematabica.view.cadastrar.catalogo.produto.CadastrarProdutoGUI;
 import br.com.sistematabica.view.catalogo.ProdutoGUI;
 import javax.swing.JOptionPane;
 
-/**Classe Controller que vai controlar tudo relacionado a produto.
+/**Classe Controller que vai ser responsável por tudo relacionado a produto.
  * 
  * @author Joel Henrique
  * @author Evelyn Mayara

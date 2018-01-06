@@ -12,7 +12,7 @@ import br.com.sistematabica.view.contas.GerenteGUI;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/**Classe Controller que vai controlar tudo relacionado ao gerente.
+/**Controller que vai ser responsável por tudo relacionado ao gerente.
  * 
  * @author Joel Henrique
  * @author Evelyn Mayara
@@ -33,7 +33,7 @@ public class GerenteController {
      * @author Lucas Gabriel
      *
      */
-    public void showGUI() {
+    public void showTela() {
        GerenteGUI = new GerenteGUI();
        GerenteGUI.setVisible(true);
     }
@@ -47,7 +47,7 @@ public class GerenteController {
      * @param gerente Gerente - um objeto gerente.
      *
      */
-    void showGUI(Gerente gerente) {
+    void showTela(Gerente gerente) {
        GerenteGUI = new GerenteGUI(gerente);
        GerenteGUI.setVisible(true);
     }
@@ -82,11 +82,11 @@ public class GerenteController {
      * @param id Int - id do gerente qu vai ser deletado
      *
      */
-    public void deletarGerente(int id) {
+    public void deletar(int id) {
         new GerenteDAOOracle().deletarGerente(new GerenteDAOOracle().idDadoPessoal(id));
        new DadoPessoalDAOOracle().deletarDadoPessoal(id);
         
-        new MenuController().dispose();
+        new MenuController().fecharTelaPrincipal();
         
         if(new GerenteDAOOracle().isGerente()) {
             
@@ -110,7 +110,7 @@ public class GerenteController {
      * @author Lucas Gabriel
      *
      */
-    public void novo() {
+    public void telaNovo() {
         
         CadastrarGerenteGUI cadastrarGerenteGUI = new CadastrarGerenteGUI();
         cadastrarGerenteGUI.setVisible(true);
@@ -126,7 +126,7 @@ public class GerenteController {
      * @param gerente Gerente - um objeto gerente
      *
      */
-    public void alterarGUI(Gerente gerente) {
+    public void telaAlterar(Gerente gerente) {
         MeuPerfilGerenteGUI alterar = new MeuPerfilGerenteGUI(gerente);
         alterar.setVisible(true);
     }

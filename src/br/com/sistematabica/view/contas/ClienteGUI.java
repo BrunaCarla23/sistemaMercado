@@ -511,7 +511,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         if (jTable1.getSelectedRow() != -1) {
             
             this.dispose();
-            clienteController.alterarGUI(clienteTableModel.getList(jTable1.getSelectedRow()));
+            clienteController.telaAlterar(clienteTableModel.getList(jTable1.getSelectedRow()));
 
         } else if (jTable1.getSelectedRow() == -1) {
              JOptionPane.showMessageDialog(null,"Operador não selecionado");
@@ -530,7 +530,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     private void lblNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNovoMouseClicked
         
         this.dispose();      
-        clienteController.novoGUI();
+        clienteController.telaNovo();
         
     }//GEN-LAST:event_lblNovoMouseClicked
 
@@ -547,7 +547,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         // se algum dado estiver selecionado na tabela
         if (jTable1.getSelectedRow() != -1) {
             
-            clienteController.imagem(clienteTableModel.getList(jTable1.getSelectedRow()).getDados().getURLFoto());
+            clienteController.telaImagem(clienteTableModel.getList(jTable1.getSelectedRow()).getDados().getURLFoto());
             
         } else if (jTable1.getSelectedRow() == -1) {
              JOptionPane.showMessageDialog(null,"Operador não selecionado");

@@ -432,7 +432,7 @@ public class NovaVendaGUI extends javax.swing.JFrame {
                 int cod = Integer.parseInt(text);
 
                 if (novaVendaController.validarProdutoCod(cod)) {
-                    Produto produto = novaVendaController.produtoCod(cod);
+                    Produto produto = novaVendaController.idProduto(cod);
 
                     novaVendaTableModel.addRow(produto);
                     jTable1.setModel(novaVendaTableModel);
@@ -463,7 +463,7 @@ public class NovaVendaGUI extends javax.swing.JFrame {
 
                 if (novaVendaController.validarProdutoCod(cod)) {
 
-                    Produto produto = novaVendaController.produtoCod(cod);
+                    Produto produto = novaVendaController.idProduto(cod);
 
                     novaVendaTableModel.removeRow(jTable1.getSelectedRow());
 

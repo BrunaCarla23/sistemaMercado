@@ -10,7 +10,7 @@ import br.com.sistematabica.view.alterar.conta.cliente.AlterarClienteGUI;
 import br.com.sistematabica.view.cadastrar.conta.cliente.CadastrarClienteGUI;
 import javax.swing.JOptionPane;
 
-/**Classe Controller que vai controlar tudo relacionado a cliente.
+/**Classe Controller que vai ser responsável por tudo relacionado a cliente.
  * 
  * @author Joel Henrique
  * @author Evelyn Mayara
@@ -31,7 +31,7 @@ public class ClienteController {
      * @author Lucas Gabriel
      *
      */
-    public void showGUI() {
+    public void showTela() {
         usuarioGUI = new ClienteGUI(new ClienteDAOOracle().selecionarTodosClientes());
         usuarioGUI.setVisible(true);
     }
@@ -75,11 +75,7 @@ public class ClienteController {
         boolean cliente = new ClienteDAOOracle().deletarCliente(id);
         boolean dadosPessoal = new DadoPessoalDAOOracle().deletarDadoPessoal(id);
 
-        if (cliente && dadosPessoal) {
-            return true;
-        } else {
-            return false;
-        }
+        return cliente && dadosPessoal;
     }
 
     /**Método que vai instanciar e mostrar a tela de alteração do clinte passando por parementro um cliente.
@@ -91,7 +87,7 @@ public class ClienteController {
      * @param cliente Cliente - Um objeto cliente.
      *
      */
-    public void alterarGUI(Cliente cliente) {
+    public void telaAlterar(Cliente cliente) {
         AlterarClienteGUI alterar = new AlterarClienteGUI(cliente);
         alterar.setVisible(true);
     }
@@ -103,7 +99,7 @@ public class ClienteController {
      * @author Lucas Gabriel
      *
      */
-    public void novoGUI() {
+    public void telaNovo() {
         CadastrarClienteGUI gui = new CadastrarClienteGUI();
         gui.setVisible(true);
     }
@@ -117,7 +113,7 @@ public class ClienteController {
      * @param urlFoto String - a url da foto que vai ser mostrada.
      *
      */
-    public void imagem(String urlFoto) {
+    public void telaImagem(String urlFoto) {
         MostrarIconGUI gui = new MostrarIconGUI(urlFoto);
         gui.setVisible(true);
     }

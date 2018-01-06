@@ -121,7 +121,7 @@ public class GerenteGUI extends javax.swing.JFrame {
 
     private void lblButtonDeletarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonDeletarMouseClicked
         System.out.println("NUMERO REGISTRO: " + gerenteAtual.getDados().getNumeroRegistro());
-        new GerenteController().deletarGerente(gerenteAtual.getDados().getNumeroRegistro());
+        new GerenteController().deletar(gerenteAtual.getDados().getNumeroRegistro());
         this.dispose();
     }//GEN-LAST:event_lblButtonDeletarMouseClicked
 

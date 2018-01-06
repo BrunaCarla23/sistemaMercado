@@ -11,7 +11,7 @@ import br.com.sistematabica.model.tablemodel.NovaVendaTableModel;
 import br.com.sistematabica.view.vendas.NovaVendaGUI;
 import java.util.ArrayList;
 
-/**Classe Controller que vai controlar tudo relacionado a vendas.
+/**Classe Controller que vai ser responsável por tudo relacionado a vendas.
  * 
  * @author Joel Henrique
  * @author Evelyn Mayara
@@ -31,12 +31,12 @@ public class NovaVendaController {
      * @author Evelyn Mayara
      * @author Lucas Gabriel
      * 
-     * @param nomeVendedor
-     * @param clientes
-     * @param codNumeroVenda
+     * @param nomeVendedor String - nome do vendedor
+     * @param clientes ArrayList - todos os clientes
+     * @param codNumeroVenda int cod do numero da venda
      *
      */
-    public void showGUI(String nomeVendedor, ArrayList<Cliente> clientes, int codNumeroVenda) {
+    public void showTela(String nomeVendedor, ArrayList<Cliente> clientes, int codNumeroVenda) {
         novaVendaGUI = new NovaVendaGUI(nomeVendedor, clientes, codNumeroVenda);
         novaVendaGUI.setVisible(true);
     }
@@ -47,13 +47,13 @@ public class NovaVendaController {
      * @author Evelyn Mayara
      * @author Lucas Gabriel
      * 
-     * @param cod Int - id do produto
+     * @param id Int - id do produto
      * 
      * @return Produto - o produto escolhido
      *
      */
-    public Produto produtoCod(int cod) {
-            return new ProdutoDAOOracle().selecionarUmProduto(cod);
+    public Produto idProduto(int id) {
+            return new ProdutoDAOOracle().selecionarUmProduto(id);
     }
 
     /**Método que vai salvar vendas no banco de dados
@@ -78,6 +78,8 @@ public class NovaVendaController {
      * @author Lucas Gabriel
      * 
      * @param cod Int - cod do produto
+     * 
+     * @return boolean - se for valido retorna true, senão false
      *
      */
     public boolean validarProdutoCod(int cod) {

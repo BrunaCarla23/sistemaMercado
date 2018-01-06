@@ -251,7 +251,7 @@ public class ConsultarVendaGUI extends javax.swing.JFrame {
         if(jTable1.getSelectedRow() != -1) {
  
             // se a remoção do banco de dados foi feita com sucesso
-            if(consultarVendaController.excluir(consultarVendaTableModel.getList(jTable1.getSelectedRow()).getId())) {
+            if(consultarVendaController.deletar(consultarVendaTableModel.getList(jTable1.getSelectedRow()).getId())) {
                 System.out.println("GALINHA");
                 // remover da tabela
                 consultarVendaTableModel.removeRow(jTable1.getSelectedRow());
