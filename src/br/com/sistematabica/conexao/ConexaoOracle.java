@@ -42,7 +42,7 @@ public class ConexaoOracle {
     public Connection getConnection() {
         try{
             //con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","ifpe");
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","workspaceTeste1","123");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","bancosistematabica","lajedo10");
         }catch(SQLException ex){
             System.out.println("Banco de dados: Erro ao abrir uma conexão");
         }finally{
