@@ -20,26 +20,26 @@ public class ProdutoController {
 
     private ProdutoGUI telaGUI;
 
-    /**Método que vai mostrar a tela principal de produto
+    /**Método que vai mostrar a tela principal de produto.
      * 
      * @author Joel Henrique
      * @author Evelyn Mayara
      * @author Lucas Gabriel
      *
      */
-    public void showGUI() {
+    public void showTela() {
         this.telaGUI = new ProdutoGUI(new ProdutoDAOOracle().selecionarProduto());
         this.telaGUI.setVisible(true);
     }
 
-    /**Método que vai mostrar a tela para cadastrar um novo produto
+    /**Método que vai mostrar a tela para cadastrar um novo produto.
      * 
      * @author Joel Henrique
      * @author Evelyn Mayara
      * @author Lucas Gabriel
      *
      */
-    public void novoGUI() {
+    public void telaNovo() {
         CadastrarProdutoGUI gui = new CadastrarProdutoGUI();
         gui.setVisible(true);
     }
@@ -53,7 +53,7 @@ public class ProdutoController {
      * @param produto Produto - o produto que vai se adicionado no banco
      *
      */
-    public void novo(Produto produto) {
+    public void inserir(Produto produto) {
         new ProdutoDAOOracle().inserirProduto(produto);
     }
 
@@ -68,16 +68,10 @@ public class ProdutoController {
      * @return boolean - se deletado com sucesso true 
      *
      */
-    public boolean excluir(int id) {
-
+    public boolean deletarID(int id) {
         boolean produto = new ProdutoDAOOracle().dropProduto(id);
-
-        if (produto) {
-            return true;
-        } else {
-            return false;
-        }
-
+        
+        return produto;
     }
 
     /**Método que vai imprimir a relação dos produtos
@@ -91,7 +85,7 @@ public class ProdutoController {
         JOptionPane.showMessageDialog(null, "Função indisponível no momento");
     }
 
-    /**Método que vai alterar o produto no banco
+    /**Método que vai alterar o produto no banco.
      * 
      * @author Joel Henrique
      * @author Evelyn Mayara
@@ -100,7 +94,7 @@ public class ProdutoController {
      * @param produto Produto - objeto produto
      *
      */
-    public void alterar(Produto produto) {
+    public void atualizar(Produto produto) {
         new ProdutoDAOOracle().updateProduto(produto);
     }
 
@@ -113,7 +107,7 @@ public class ProdutoController {
      * @param produto Produto - objeto produto
      *
      */
-    public void alterarGUI(Produto produto) {
+    public void telaAlterar(Produto produto) {
         AlterarProdutoGUI alterar = new AlterarProdutoGUI(produto);
         alterar.setVisible(true);
     }

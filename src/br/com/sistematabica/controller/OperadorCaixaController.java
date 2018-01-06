@@ -34,7 +34,7 @@ public class OperadorCaixaController {
      * @author Lucas Gabriel
      *
      */
-    public void showGUI() {
+    public void showTela() {
         this.telaGUI = new OperadorCaixaGUI(new OperadorCaixaDAOOracle().selecionarTodosOperadorCaixa());
         this.telaGUI.setVisible(true);
     }
@@ -45,8 +45,9 @@ public class OperadorCaixaController {
      * @author Evelyn Mayara
      * @author Lucas Gabriel
      * 
-     * @param email
-     * @return String
+     * @param email String email do usuario
+     * 
+     * @return String - a senha do usuario
      * 
      */
     public String mostrarSenha(String email) {
@@ -55,6 +56,7 @@ public class OperadorCaixaController {
            return new GeralDAOOracle().pegarSenha(con, email);
         } catch (SQLException ex) {
             System.out.println("erro OperadorCaixaController!");
+            ex.printStackTrace();
         }
         return null;
         
@@ -67,7 +69,7 @@ public class OperadorCaixaController {
      * @author Lucas Gabriel
      *
      */
-    public void novoGUI() {
+    public void telaNovo() {
         CadastrarOperadorCaixaGUI gui = new CadastrarOperadorCaixaGUI();
         gui.setVisible(true);
     }
@@ -81,7 +83,7 @@ public class OperadorCaixaController {
      * @param operadorCaixa OperadorCaixa - um objeto operador
      *
      */
-    public void novo(OperadorCaixa operadorCaixa) {
+    public void inserir(OperadorCaixa operadorCaixa) {
         new CRUDContaController().inserir(operadorCaixa);
     }
 
@@ -92,18 +94,16 @@ public class OperadorCaixaController {
      * @author Lucas Gabriel
      * 
      * @param id Int - id do operador
+     * 
+     * @return boolean - se foi deletado retorna true senão false
      *
      */
-    public boolean excluir(int id) {
+    public boolean deletarID(int id) {
 
         boolean operadorCaixa = new OperadorCaixaDAOOracle().deletarOperadorCaixa(id);
         boolean dadosPessoal = new DadoPessoalDAOOracle().deletarDadoPessoal(id);
 
-        if (operadorCaixa && dadosPessoal) {
-            return true;
-        } else {
-            return false;
-        }
+        return operadorCaixa && dadosPessoal;
 
     }
 
@@ -127,11 +127,9 @@ public class OperadorCaixaController {
      * @param operadorCaixa OperadorCaixa - um objeto operador
      *
      */
-    public void alterar(OperadorCaixa operadorCaixa) {
-
+    public void atualizar(OperadorCaixa operadorCaixa) {
         new DadoPessoalDAOOracle().atualizarDadoPessoal(operadorCaixa);
         new OperadorCaixaDAOOracle().atualizarOperadorCaixa(operadorCaixa);
-        
     }
 
     /**Método que vai mostrar a tela de alteração de operador
@@ -143,7 +141,7 @@ public class OperadorCaixaController {
      * @param operadorCaixa OperadorCaixa - que vai se setado na view de alteração
      *
      */
-    public void alterarGUI(OperadorCaixa operadorCaixa) {
+    public void telaAlterar(OperadorCaixa operadorCaixa) {
         AlterarOperadorCaixaGUI alterar = new AlterarOperadorCaixaGUI(operadorCaixa);
         alterar.setVisible(true);
     }
@@ -157,7 +155,7 @@ public class OperadorCaixaController {
      * @param url String - a url da imagem
      *
      */
-    public void imagem(String url) {
+    public void telaImagem(String url) {
         MostrarIconGUI gui = new MostrarIconGUI(url);
         gui.setVisible(true);
     }
@@ -169,6 +167,8 @@ public class OperadorCaixaController {
      * @author Lucas Gabriel
      * 
      * @param nomeLogin String - o email do operador
+     * 
+     * @return boolean se for valido retorna true, senão false
      *
      */
     public boolean validarEmail(String nomeLogin) {
@@ -177,6 +177,7 @@ public class OperadorCaixaController {
            return new GeralDAOOracle().validarEmail(con, nomeLogin);
         } catch (SQLException ex) {
             System.out.println("erro OperadorCaixaController!");
+            ex.printStackTrace();
         }
             return false;
     }

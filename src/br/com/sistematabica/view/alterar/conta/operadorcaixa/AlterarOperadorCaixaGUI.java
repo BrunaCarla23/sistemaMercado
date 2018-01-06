@@ -364,16 +364,16 @@ public class AlterarOperadorCaixaGUI extends javax.swing.JFrame {
             if(this.emailAtual.equals(objectConta().getNomeLogin())) {
 
                 OperadorCaixaController operadorCaixaController = new OperadorCaixaController();
-                operadorCaixaController.alterar(objectConta());
-                operadorCaixaController.showGUI();
+                operadorCaixaController.atualizar(objectConta());
+                operadorCaixaController.showTela();
 
                 this.dispose();
 
             }else if(new OperadorCaixaController().validarEmail(objectConta().getNomeLogin())) {
 
                 OperadorCaixaController operadorCaixaController = new OperadorCaixaController();
-                operadorCaixaController.alterar(objectConta());
-                operadorCaixaController.showGUI();
+                operadorCaixaController.atualizar(objectConta());
+                operadorCaixaController.showTela();
 
                 this.dispose();
 
@@ -401,7 +401,7 @@ public class AlterarOperadorCaixaGUI extends javax.swing.JFrame {
         
         // chamando a tela principal do Operador de Caixa
         OperadorCaixaController operadorCaixaController = new OperadorCaixaController();
-        operadorCaixaController.showGUI();
+        operadorCaixaController.showTela();
     }//GEN-LAST:event_lblButtonVoltarMouseClicked
 
     private void lblButtonVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonVoltarMouseEntered

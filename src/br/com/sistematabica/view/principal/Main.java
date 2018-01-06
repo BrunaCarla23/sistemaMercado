@@ -24,7 +24,7 @@ public class Main {
             
             System.out.println("sistema: Existe pelo menos 1 gerente");
             PrincipalController principalController = new PrincipalController();
-            principalController.showGUI();
+            principalController.showTela();
                 
         }else {
             

@@ -92,7 +92,7 @@ public class GerenteController {
             
             System.out.println("sistema: Existe pelo menos 1 gerente");
             PrincipalController principalController = new PrincipalController();
-            principalController.showGUI();
+            principalController.showTela();
                 
         }else {
             
@@ -143,7 +143,7 @@ public class GerenteController {
     public void alterar(Gerente gerente) {
         new DadoPessoalDAOOracle().atualizarDadoPessoal(gerente);
         new GerenteDAOOracle().updateGerente(gerente);
-        new PrincipalController().showGUI();
+        new PrincipalController().showTela();
         
     }
 

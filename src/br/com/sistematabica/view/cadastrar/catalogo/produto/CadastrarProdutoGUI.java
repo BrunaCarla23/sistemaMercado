@@ -222,7 +222,7 @@ public class CadastrarProdutoGUI extends javax.swing.JFrame {
     private void lblButtonVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonVoltarMouseClicked
         this.dispose();
         ProdutoController produtoController = new ProdutoController();
-        produtoController.showGUI();
+        produtoController.showTela();
     }//GEN-LAST:event_lblButtonVoltarMouseClicked
 
     private void lblButtonSalvarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonSalvarMouseExited
@@ -251,10 +251,10 @@ public class CadastrarProdutoGUI extends javax.swing.JFrame {
                 produto.setNome(this.txtNome.getText());
                 produto.setValor(Double.parseDouble(this.txtValor.getText()));
 
-                new ProdutoController().novo(produto);
+                new ProdutoController().inserir(produto);
                 this.dispose();
                 ProdutoController produtoController = new ProdutoController();
-                produtoController.showGUI();
+                produtoController.showTela();
                 
             }catch(NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Campo invalido, digite só numeros!");

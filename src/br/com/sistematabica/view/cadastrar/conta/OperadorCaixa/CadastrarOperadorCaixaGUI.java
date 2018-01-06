@@ -368,7 +368,7 @@ public class CadastrarOperadorCaixaGUI extends javax.swing.JFrame {
         
         // chamando a tela principal do Operador de Caixa
         OperadorCaixaController operadorCaixaController = new OperadorCaixaController();
-        operadorCaixaController.showGUI();
+        operadorCaixaController.showTela();
         
     }//GEN-LAST:event_lblButtonVoltarMouseClicked
 

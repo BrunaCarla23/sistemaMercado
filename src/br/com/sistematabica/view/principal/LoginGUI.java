@@ -216,7 +216,7 @@ public class LoginGUI extends javax.swing.JFrame {
                 throw new LoginErradoException(lblError, txtSenha);
             } else {
                 principalController.enviarLogin(txtUsuario.getText(), txtSenha.getText());
-                principalController.objectSelect(new PrincipalGUI());
+                principalController.chamarTela(new PrincipalGUI());
             }
 
         } catch (LoginErradoException ex) {

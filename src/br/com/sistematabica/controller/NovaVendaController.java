@@ -30,6 +30,10 @@ public class NovaVendaController {
      * @author Joel Henrique
      * @author Evelyn Mayara
      * @author Lucas Gabriel
+     * 
+     * @param nomeVendedor
+     * @param clientes
+     * @param codNumeroVenda
      *
      */
     public void showGUI(String nomeVendedor, ArrayList<Cliente> clientes, int codNumeroVenda) {

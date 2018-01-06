@@ -1,14 +1,3 @@
-    /**Método para calculo da diária com base no salário do
-     * 
-     * @author Joel Henrique
-     * @author Evelyn Mayara
-     * @author Lucas Gabriel
-     * 
-     * @param diasViagem int - Valor total das vendas do mês.
-     *
-     * @return Double - Valor da diaria
-     *
-     */
 
 package br.com.sistematabica.conexao;
 
@@ -17,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-/**Classe que contém a Connection.
+/**Classe que contém a Connection, onde para abrir um conexão ou fechar tem que instanciar a mesma.
  * 
  * @author Joel Henrique
  * @author Evelyn Mayara
@@ -30,27 +19,27 @@ public class ConexaoOracle {
     
     private Connection con;
     
-    /**Método que vai retornar um objeto connection
+    /**Método que vai abrir a conexão
      * 
      * @author Joel Henrique
      * @author Evelyn Mayara
      * @author Lucas Gabriel
      * 
-     * @return Connection - conexão
+     * @return Connection - Classe connection
      *
      */
     public Connection getConnection() {
         try{
-            //con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","ifpe");
+            //con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","Database username","senha");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","bancosistematabica","lajedo10");
         }catch(SQLException ex){
-            System.out.println("Banco de dados: Erro ao abrir uma conexão");
+            System.out.println("dao>ConexaoOracle: Erro ao abrir uma conexão!");
         }finally{
             return con;
         }
     }
     
-    /**Método que vai fechar a conexão de um objeto connection
+    /**Método que vai fechar a conexão com o banco de dados
      * 
      * @author Joel Henrique
      * @author Evelyn Mayara
@@ -61,7 +50,7 @@ public class ConexaoOracle {
         try{
             con.close();
         }catch(SQLException ex){
-            System.out.println("BANCO DE DADOS: Erro ao fechar a conexão");
+            System.out.println("dao>ConexaoOracle: Erro ao fechar a conexão!");
         }
     }
     

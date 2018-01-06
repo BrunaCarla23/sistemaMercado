@@ -226,7 +226,7 @@ public class CadastrarLoginGerenteGUI extends javax.swing.JFrame {
            PrincipalController principalController = new PrincipalController();
            this.setVisible(false);
 
-           principalController.showGUI();
+           principalController.showTela();
             
         }else {
             System.out.println("EMAIL JA CADASTRADO");

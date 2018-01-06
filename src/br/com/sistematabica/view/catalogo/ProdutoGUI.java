@@ -305,7 +305,7 @@ public class ProdutoGUI extends javax.swing.JFrame {
         if(jTable1.getSelectedRow() != -1) {
            
             // se a remoção do banco de dados foi feita com sucesso
-            if(produtoController.excluir(produtoTableModel.getList(jTable1.getSelectedRow()).getCodigo())) {
+            if(produtoController.deletarID(produtoTableModel.getList(jTable1.getSelectedRow()).getCodigo())) {
                 
    
                 // remover da tabela
@@ -328,7 +328,7 @@ public class ProdutoGUI extends javax.swing.JFrame {
             System.out.println("CODIGO +" + produtoTableModel.getList(jTable1.getSelectedRow()).getCodigo());
             
             this.dispose();
-            produtoController.alterarGUI(produtoTableModel.getList(jTable1.getSelectedRow()));
+            produtoController.telaAlterar(produtoTableModel.getList(jTable1.getSelectedRow()));
 
         } else if (jTable1.getSelectedRow() == -1) {
              JOptionPane.showMessageDialog(null,"Operador não selecionado");
@@ -337,7 +337,7 @@ public class ProdutoGUI extends javax.swing.JFrame {
 
     private void lblNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNovoMouseClicked
         this.dispose();      
-        produtoController.novoGUI();
+        produtoController.telaNovo();
     }//GEN-LAST:event_lblNovoMouseClicked
 
     private void lblSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseEntered

@@ -485,7 +485,7 @@ public class OperadorCaixaGUI extends javax.swing.JFrame {
         if(jTable1.getSelectedRow() != -1) {
            
             // se a remoção do banco de dados foi feita com sucesso
-            if(operadorCaixaController.excluir(operadorCaixaTableModel.getList(jTable1.getSelectedRow()).getDados().getNumeroRegistro())) {
+            if(operadorCaixaController.deletarID(operadorCaixaTableModel.getList(jTable1.getSelectedRow()).getDados().getNumeroRegistro())) {
                 
                 System.out.println( operadorCaixaTableModel.getList(jTable1.getSelectedRow()).getDados().getNomeCompleto() );    
              
@@ -517,7 +517,7 @@ public class OperadorCaixaGUI extends javax.swing.JFrame {
         if (jTable1.getSelectedRow() != -1) {
             
             this.dispose();
-            operadorCaixaController.alterarGUI(operadorCaixaTableModel.getList(jTable1.getSelectedRow()));
+            operadorCaixaController.telaAlterar(operadorCaixaTableModel.getList(jTable1.getSelectedRow()));
 
         } else if (jTable1.getSelectedRow() == -1) {
              JOptionPane.showMessageDialog(null,"Operador não selecionado");
@@ -539,7 +539,7 @@ public class OperadorCaixaGUI extends javax.swing.JFrame {
 
     private void lblNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNovoMouseClicked
         this.dispose();      
-        operadorCaixaController.novoGUI();
+        operadorCaixaController.telaNovo();
     }//GEN-LAST:event_lblNovoMouseClicked
 
     private void lblNovoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNovoMouseEntered
@@ -555,7 +555,7 @@ public class OperadorCaixaGUI extends javax.swing.JFrame {
         // se algum dado estiver selecionado na tabela
         if (jTable1.getSelectedRow() != -1) {
             
-            operadorCaixaController.imagem(operadorCaixaTableModel.getList(jTable1.getSelectedRow()).getDados().getURLFoto());
+            operadorCaixaController.telaImagem(operadorCaixaTableModel.getList(jTable1.getSelectedRow()).getDados().getURLFoto());
             
         } else if (jTable1.getSelectedRow() == -1) {
              JOptionPane.showMessageDialog(null,"Operador não selecionado");

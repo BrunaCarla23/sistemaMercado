@@ -220,8 +220,8 @@ public class CadastrarLoginOperadorCaixaGUI extends javax.swing.JFrame {
             OperadorCaixa operadorCaixa = new OperadorCaixa(dados, this.txtUsuario.getText(), this.txtSenha.getText());
 
             OperadorCaixaController operadorCaixaController = new OperadorCaixaController();
-            operadorCaixaController.novo(operadorCaixa);
-            operadorCaixaController.showGUI();
+            operadorCaixaController.inserir(operadorCaixa);
+            operadorCaixaController.showTela();
 
             this.dispose();
             

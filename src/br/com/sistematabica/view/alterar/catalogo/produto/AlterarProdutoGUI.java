@@ -241,8 +241,8 @@ public class AlterarProdutoGUI extends javax.swing.JFrame {
                 produto.setCodigo(produtoAtual.getCodigo());
 
                 ProdutoController produtoController = new ProdutoController();
-                produtoController.alterar(produto);
-                produtoController.showGUI();
+                produtoController.atualizar(produto);
+                produtoController.showTela();
                 
             }catch(NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Campo invalido, digite só numeros!");
@@ -268,7 +268,7 @@ public class AlterarProdutoGUI extends javax.swing.JFrame {
     private void lblButtonVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonVoltarMouseClicked
         this.dispose();
         ProdutoController produtoController = new ProdutoController();
-        produtoController.showGUI();
+        produtoController.showTela();
     }//GEN-LAST:event_lblButtonVoltarMouseClicked
 
     private void lblButtonVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonVoltarMouseEntered

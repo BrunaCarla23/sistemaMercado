@@ -3,7 +3,6 @@ package br.com.sistematabica.controller;
 
 import br.com.sistematabica.conexao.ConexaoOracle;
 import br.com.sistematabica.dao.GeralDAOOracle;
-import br.com.sistematabica.dao.GerenteDAOOracle;
 import br.com.sistematabica.model.Gerente;
 import br.com.sistematabica.model.OperadorCaixa;
 import br.com.sistematabica.view.principal.EsqueceuSenhaGUI;
@@ -14,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/** Controller Principal que vai controlar a tela de login
+/** Controller que vai controlar a tela de login
  *
  * @author Joel Henrique Silva Santos
  * @author Evelyn Mayara Silva Santos
@@ -25,8 +24,6 @@ import javax.swing.JOptionPane;
 public class PrincipalController {
 
     private static LoginGUI loginGUI;
-    private GerenteDAOOracle gerenteDAO = new GerenteDAOOracle();
-    private static Object contaLogada = null;
     private static String email = "",senha = "";
     
     /**Método que vai mostrar a tela de login inicial
@@ -36,7 +33,7 @@ public class PrincipalController {
      * @author Lucas Gabriel
      *
      */
-    public void showGUI() {
+    public void showTela() {
         this.loginGUI = new LoginGUI();
         this.loginGUI.setVisible(true);
     }
@@ -50,6 +47,7 @@ public class PrincipalController {
      * @param emailDigitado String - o email da conta
      * @param senhaDigitada String - a senha da conta
      *
+     * @return boolean - se usuario existe retorna true, senão false
      */
     public boolean validarLogin(String emailDigitado, String senhaDigitada) {
         ArrayList<String[]> listaLogin = null;
@@ -59,20 +57,21 @@ public class PrincipalController {
 
             for (String[] i : listaLogin) {
                 if (i[0].equals(emailDigitado) && i[1].equals(senhaDigitada)) {
-                    System.out.println("Sistema: validação efetuada com sucesso");
+                    System.out.println("controller>PrincipalController: validação efetuada com sucesso");
                     return true;
                 }
             }
             
         } catch (SQLException ex) {
-            System.out.println("Sistema: erro ao validar usuario");
-            JOptionPane.showMessageDialog(null, "erro ao validar usuario com o banco de dados");
+            System.out.println("controller>PrincipalController: erro ao validar usuario");
+            JOptionPane.showMessageDialog(null, "Ops, alguma coisa deu errado ao validar o usuario no banco de dados!");
+            ex.printStackTrace();
         }
 
         return false;
     }
     
-    /**Método que vai mostrar a tela principal setado com a conta que foi logada
+    /**Método que vai mostrar a tela principal e setar a conta que foi logada
      * 
      * @author Joel Henrique
      * @author Evelyn Mayara
@@ -80,24 +79,26 @@ public class PrincipalController {
      *
      * @param principalGUI PrincipalGUI - a tela principal
      */
-    public void objectSelect(PrincipalGUI principalGUI) {
+    public void chamarTela(PrincipalGUI principalGUI) {
         try (Connection con = new ConexaoOracle().getConnection()) {
 
-            Object conta = new GeralDAOOracle().returnConta(con, this.email, this.senha);
+            // objeto que vai guardar as info do usuario logado
+            Object conta = new GeralDAOOracle().returnConta(con, PrincipalController.email, PrincipalController.senha);
             MenuController menuController = new MenuController();
             
+            // se for um gerente logado vai abrir a tela do mesmo
             if(conta instanceof Gerente) {
                 menuController.showGUI((Gerente)conta);
+            // caso for um operador vai abrir a tela do operador
             }else if(conta instanceof OperadorCaixa) {
                 menuController.showGUI((OperadorCaixa)conta);
             }
             
-            this.loginGUI.setVisible(false);
+            PrincipalController.loginGUI.setVisible(false);
 
-            System.out.println("Sistema: entrando no menuController");
-            
         } catch (SQLException ex) {
-            System.out.println("Erro com a PrincipalController");
+            System.out.println("controller>PrincipalController: Erro com a PrincipalController");
+            ex.printStackTrace();
         }
     }
     
@@ -110,10 +111,10 @@ public class PrincipalController {
      * @param esqueceuSenhaGUI EsqueceuSenhaGUI - tela esqueceu senha
      *
      */
-    public void objectSelect(EsqueceuSenhaGUI esqueceuSenhaGUI) {
+    public void chamarTela(EsqueceuSenhaGUI esqueceuSenhaGUI) {
         EsqueceuSenhaController esqueceuSenhaController = new EsqueceuSenhaController();
         esqueceuSenhaController.showGUI();
-        this.loginGUI.setVisible(false);
+        PrincipalController.loginGUI.setVisible(false);
     }
     
     /**Método que vai setar no principalController o email e a senha passado por parametro
@@ -127,8 +128,8 @@ public class PrincipalController {
      *
      */
     public void enviarLogin(String emailDigitado, String senhaDigitado) {
-        this.email = emailDigitado;
-        this.senha = senhaDigitado;
+        PrincipalController.email = emailDigitado;
+        PrincipalController.senha = senhaDigitado;
     }
 
     

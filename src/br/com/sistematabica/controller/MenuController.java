@@ -133,7 +133,7 @@ public class MenuController{
      */
     public void objectSelected(OperadorCaixaGUI tela) {
         OperadorCaixaController operadorCaixaController = new OperadorCaixaController();
-        operadorCaixaController.showGUI();
+        operadorCaixaController.showTela();
     }
 
     /** Método que vai mostrar a tela de consultar venda
@@ -179,7 +179,7 @@ public class MenuController{
      */
     public void objectSelected(ProdutoGUI tela) {
         ProdutoController produtoController = new ProdutoController();
-        produtoController.showGUI();
+        produtoController.showTela();
     }
 
     /** Método que vai mostrar a tela do movimentação
